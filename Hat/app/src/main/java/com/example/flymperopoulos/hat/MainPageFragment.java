@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,5 +26,13 @@ public class MainPageFragment extends Fragment {
         super.onAttach(activity);
         this.context = activity;
     }
-}
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.mainmenu, container, false);
+
+        Log.d("Debug", "does this show up?");
+        return rootView;
+    }
+    }
 

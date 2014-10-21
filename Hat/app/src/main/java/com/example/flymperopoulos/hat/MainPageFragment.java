@@ -31,10 +31,7 @@ public class MainPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.mainmenu, container, false);
 
-        Log.d("DEBUG", "show up");
-
-
+        Log.d("Debug", "does this show up?");
         return rootView;
     }
 }
-

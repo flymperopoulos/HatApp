@@ -12,7 +12,11 @@
     android:background="#FFFFFF"
     tools:context=".MyActivity$PlaceholderFragment">
 
+    <TextView
+        android:text="Hello Filippos"
 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/imageLabel"
         android:layout_width="wrap_content"

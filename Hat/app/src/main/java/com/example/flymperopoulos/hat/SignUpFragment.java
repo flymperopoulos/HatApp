@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -69,6 +70,7 @@ public class SignUpFragment extends Fragment {
                 final MyActivity activity = (MyActivity)getActivity();
                 final String username = userName.getText().toString();
                 final String phonenumber = userPhone.getText().toString();
+                Log.d("Debug", "change to mainfrag");
                 activity.changeToMainPage();
             }
 

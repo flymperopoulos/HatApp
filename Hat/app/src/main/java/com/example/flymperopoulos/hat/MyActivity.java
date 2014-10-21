@@ -47,11 +47,6 @@ public class MyActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-
-
     public void changeToMainPage(){
         MainPageFragment fragment  = new MainPageFragment();
 

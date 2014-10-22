@@ -13,7 +13,8 @@ public class SideBar extends View {
     private char[] l;
     private SectionIndexer sectionIndexter = null;
     private ListView list;
-    private final int m_nItemHeight = 29;
+    private final int m_nItemHeight = 60;
+
     public SideBar(Context context) {
         super(context);
         init();
@@ -56,6 +57,7 @@ public class SideBar extends View {
         }
         return true;
     }
+
     protected void onDraw(Canvas canvas) {
         Paint paint = new Paint();
         paint.setColor(0xFFA6A9AA);

@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rellayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MyActivity$PlaceholderFragment"
     android:background="#FF9494"
     >
 
     <TextView
+        android:id="@+id/contactstitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Contact List"
@@ -21,20 +15,27 @@
         android:background="@drawable/signbutton"
         android:textSize="30sp"
         />
+
+    <com.example.flymperopoulos.hat.SideBar
+        android:id = "@+id/sideBar"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactstitle"
+        android:layout_width="50px"
+        android:scrollbarSize="50px"
+        android:layout_alignParentRight="true"
+        android:background="#FFFFFF"
+        />
     <ListView
         android:id="@+id/contactlist"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_toLeftOf="@+id/sideBar"
         android:layout_height="fill_parent"
+        android:layout_below="@+id/contactstitle"
         android:background="#98A5F7"
         >
         </ListView>
 
-    <com.example.flymperopoulos.hat.SideBar
-        android:id = "@+id/sideBar"
-        android:layout_height="fill_parent"
-        android:layout_width="22px"
-        android:layout_alignParentRight="true"
-        />
+
 
     <!--<CheckBox-->
         <!--android:id="@+id/selected"-->

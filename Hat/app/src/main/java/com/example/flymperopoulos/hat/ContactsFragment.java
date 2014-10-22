@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -31,22 +33,31 @@ public class ContactsFragment extends Fragment {
         this.context = activity;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View rootView = inflater.inflate(R.layout.contactspage, container, false);
+        final View rootView = inflater.inflate(R.layout.contactspage, container, false);
         ListView contacts = (ListView) rootView.findViewById(R.id.contactlist);
-        ArrayAdapter<String> contactsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, readContacts());
+        final ContactsAdapter contactsAdapter = new ContactsAdapter(getActivity(), readContacts());
         contacts.setAdapter(contactsAdapter);
 
         SideBar indexBar = (SideBar) rootView.findViewById(R.id.sideBar);
         indexBar.setListView(contacts);
 
+        contacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                contactsAdapter.getItem(i).toString();
+                CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
+                checkBox.setVisibility(View.VISIBLE);
+            }
+        });
+
         return rootView;
 
     }
+
     public ArrayList<String> readContacts() {
         Log.d("START", "Getting all Contacts");
         ArrayList<String> arrContacts = new ArrayList<String>();

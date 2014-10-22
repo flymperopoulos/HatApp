@@ -12,11 +12,7 @@
     android:background="#FFFFFF"
     tools:context=".MyActivity$PlaceholderFragment">
 
-    <TextView
-        android:text="Hello Filippos"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/imageLabel"
         android:layout_width="wrap_content"
@@ -26,4 +22,14 @@
         android:src="@drawable/hatinvert"
         />
 
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/recordhat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/recordhat"
+        />
+
+
+</RelativeLayout>

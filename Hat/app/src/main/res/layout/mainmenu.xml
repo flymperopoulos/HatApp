@@ -34,9 +34,13 @@
     <Button
         android:id="@+id/send"
         android:textSize="20dp"
+        android:layout_below="@+id/recordhat"
         android:text="Send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/sendbutton"
+        android:textAllCaps="true"
+        />
 
 </RelativeLayout>

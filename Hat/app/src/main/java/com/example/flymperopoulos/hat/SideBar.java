@@ -60,7 +60,7 @@ public class SideBar extends View {
 
     protected void onDraw(Canvas canvas) {
         Paint paint = new Paint();
-        paint.setColor(0xFFA6A9AA);
+        paint.setColor(0xff000000);
         paint.setTextSize(20);
         paint.setTextAlign(Paint.Align.CENTER);
         float widthCenter = getMeasuredWidth() / 2;

@@ -33,6 +33,8 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.signup, container, false);
 
+        Log.i("DebugDebug", "SignonFragment");
+
         final EditText userName = (EditText)rootView.findViewById(R.id.user);
         final EditText userPhone = (EditText)rootView.findViewById(R.id.phone);
         final RelativeLayout relativeLayout = (RelativeLayout)rootView.findViewById(R.id.rellayout);
@@ -65,7 +67,7 @@ public class SignUpFragment extends Fragment {
                     Toast.makeText(context, "Enter a 10-digit number with no spaces or dashes", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(context, "Welcome, " + userName.getText().toString() + "!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Hello, " + userName.getText().toString() + "!", Toast.LENGTH_SHORT).show();
 
                 final MyActivity activity = (MyActivity)getActivity();
                 final String username = userName.getText().toString();

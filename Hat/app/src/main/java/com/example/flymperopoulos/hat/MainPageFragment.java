@@ -97,7 +97,3 @@ public class MainPageFragment extends Fragment {
         return rootView;
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 2e7ad6b089f86c34acc8047da59b512a9949435d

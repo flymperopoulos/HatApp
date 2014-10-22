@@ -69,35 +69,21 @@ public class MainPageFragment extends Fragment {
                     newhat.setVisibility(View.INVISIBLE);
                     hat.setVisibility(View.VISIBLE);
                     Log.d("stop", "stop recording");
-                    ((MyActivity) getActivity()).changeToContactsFragment();
+
                     return true;
                 }
                 return false;
             }
-//        Button record = (Button) rootView.findViewById(R.id.record);
-//        record.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try{
-//                    StartRecording();
-//                    Log.d("record", "recording?");
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        Button stop = (Button) rootView.findViewById(R.id.stop);
-//        stop.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                StopRecording();
-//                Log.d("stop", "stop recording");
-//            }
-//        });
-
-
         });
+        Button send = (Button)rootView.findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MyActivity) getActivity()).changeToContactsFragment();
+            }
+        });
+
+
         return rootView;
     }
 

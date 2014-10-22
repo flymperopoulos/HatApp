@@ -31,10 +31,8 @@ public class ContactsFragment extends Fragment {
         this.context = activity;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
 
         View rootView = inflater.inflate(R.layout.contactspage, container, false);
         ListView contacts = (ListView) rootView.findViewById(R.id.contactlist);
@@ -45,8 +43,8 @@ public class ContactsFragment extends Fragment {
         indexBar.setListView(contacts);
 
         return rootView;
-
     }
+
     public ArrayList<String> readContacts() {
         Log.d("START", "Getting all Contacts");
         ArrayList<String> arrContacts = new ArrayList<String>();

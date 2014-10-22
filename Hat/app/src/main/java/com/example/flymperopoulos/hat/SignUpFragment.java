@@ -73,7 +73,7 @@ public class SignUpFragment extends Fragment {
                 final String username = userName.getText().toString();
                 final String phonenumber = userPhone.getText().toString();
                 Log.d("Debug", "change to mainfrag");
-                activity.changeToMainPage();
+                activity.changeToMainPageFragment();
             }
 
         });

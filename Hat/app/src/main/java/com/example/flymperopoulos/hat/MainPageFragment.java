@@ -69,6 +69,7 @@ public class MainPageFragment extends Fragment {
                     newhat.setVisibility(View.INVISIBLE);
                     hat.setVisibility(View.VISIBLE);
                     Log.d("stop", "stop recording");
+                    ((MyActivity) getActivity()).changeToContactsFragment();
                     return true;
                 }
                 return false;

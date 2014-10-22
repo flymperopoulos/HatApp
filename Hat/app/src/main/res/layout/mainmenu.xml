@@ -12,6 +12,7 @@
     android:background="#FFFFFF"
     tools:context=".MyActivity$PlaceholderFragment">
 
+
     <ImageView
         android:id="@+id/imageLabel"
         android:layout_width="wrap_content"
@@ -29,20 +30,6 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/recordhat"
         />
-
-    <Button
-        android:id="@+id/record"
-        android:text="Record"
-        android:textSize="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/stop"
-        android:text="Stop"
-        android:textSize="20dp"
-        android:layout_below="@+id/record"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

@@ -51,8 +51,16 @@ public class MyActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void changeToMainPage(){
+    public void changeToMainPageFragment(){
         MainPageFragment fragment  = new MainPageFragment();
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
+    }
+
+    public void changeToContactsFragment(){
+        ContactsFragment fragment  = new ContactsFragment();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.replace(R.id.container, fragment);

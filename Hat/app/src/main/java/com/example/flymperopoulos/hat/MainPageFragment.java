@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -42,58 +43,96 @@ public class MainPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.mainmenu, container, false);
 
+        final ImageView hat = (ImageView) rootView.findViewById(R.id.imageLabel);
+
+        final ImageView newhat = (ImageView) rootView.findViewById(R.id.recordhat);
+        newhat.setVisibility(View.INVISIBLE);
+
         OUTPUT_FILE = Environment.getExternalStorageDirectory() + "/audiorecorder.3gpp";
 
-        rootView.setOnTouchListener(new View.OnTouchListener() {
+        hat.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     try {
                         StartRecording();
+                        newhat.setVisibility(View.VISIBLE);
+                        hat.setVisibility(View.INVISIBLE);
+                        Log.d("record", "recording?");
+                        return true;
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                } if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                }
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     StopRecording();
+                    newhat.setVisibility(View.INVISIBLE);
+                    hat.setVisibility(View.VISIBLE);
+                    Log.d("stop", "stop recording");
+                    return true;
                 }
-                return true;
+                return false;
             }
+//        Button record = (Button) rootView.findViewById(R.id.record);
+//        record.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try{
+//                    StartRecording();
+//                    Log.d("record", "recording?");
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//
+//        Button stop = (Button) rootView.findViewById(R.id.stop);
+//        stop.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                StopRecording();
+//                Log.d("stop", "stop recording");
+//            }
+//        });
 
-            private void StartRecording() throws Exception{
-                // Release the recorder object if it is already in use we will release it
-                releaseMediaRecorder();
-                File outFile = new File(OUTPUT_FILE);
 
-                if (outFile.exists())
-                    outFile.delete();
-
-                recorder = new MediaRecorder();
-
-                recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-                recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-                recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-                recorder.setOutputFile(OUTPUT_FILE);
-                recorder.prepare();
-                recorder.start();
-            }
-
-            private void StopRecording(){
-                if (recorder != null)
-                    recorder.stop();
-            }
-
-            private void releaseMediaRecorder() {
-                // We have a recorder object, and we want to release it
-                if (recorder != null){
-                    recorder.release();
-                    try {
-                        mediaPlayer.release();
-                    } catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-            });
+        });
         return rootView;
     }
+
+    private void StartRecording() throws Exception{
+        // Release the recorder object if it is already in use we will release it
+        releaseMediaRecorder();
+        File outFile = new File(OUTPUT_FILE);
+
+        if (outFile.exists())
+            outFile.delete();
+
+        recorder = new MediaRecorder();
+
+        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        recorder.setOutputFile(OUTPUT_FILE);
+        recorder.prepare();
+        recorder.start();
+    }
+
+    private void StopRecording(){
+        if (recorder != null)
+            recorder.stop();
+    }
+
+    private void releaseMediaRecorder() {
+        // We have a recorder object, and we want to release it
+        if (recorder != null){
+            recorder.release();
+            try {
+                mediaPlayer.release();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

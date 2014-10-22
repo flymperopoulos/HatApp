@@ -25,6 +25,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="yo"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
@@ -34,6 +35,7 @@
 
     <EditText android:id="@+id/phone"
         android:layout_width="250dp"
+        android:text="7076066969"
         android:layout_height="wrap_content"
         android:maxLength="10"
         android:gravity="center"

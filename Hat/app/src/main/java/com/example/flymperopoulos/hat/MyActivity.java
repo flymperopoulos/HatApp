@@ -13,10 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ListView;
 
+import java.util.ArrayList;
 
 
 public class MyActivity extends Activity {
+
+    ArrayList<String> resultsArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class MyActivity extends Activity {
         setContentView(R.layout.activity_my);
 
         Log.i("DebugDebug", "HERE");
+        resultsArray = new ArrayList<String>();
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()

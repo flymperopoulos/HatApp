@@ -31,6 +31,7 @@ public class ContactsFragment extends Fragment {
     Button sendButton;
     Button arrowButton;
     String allnames;
+    ArrayList<String> resultsArray;
 
     @Override
     public void onAttach(Activity activity) {
@@ -42,6 +43,9 @@ public class ContactsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.contactspage, container, false);
+
+        resultsArray = ((MyActivity)getActivity()).resultsArray;
+
         ListView contacts = (ListView) rootView.findViewById(R.id.contactlist);
         final ContactsAdapter contactsAdapter = new ContactsAdapter(getActivity(), readContacts());
         contacts.setAdapter(contactsAdapter);
@@ -73,12 +77,16 @@ public class ContactsFragment extends Fragment {
                         for (int j=0; j<nameList.size(); j++){
                             temp += nameList.get(j) + ", ";
                         }
+                        resultsArray = (ArrayList<String>) nameList;
+
                         allnames = temp ;
                     } else {
                         allnames += chosen + ", ";
+                        resultsArray.add(chosen);
                     }
                 } else {
                     allnames = chosen + ", ";
+                    resultsArray.add(chosen);
                 }
                 sendButton.setText(allnames);
             }

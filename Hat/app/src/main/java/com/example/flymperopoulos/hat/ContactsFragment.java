@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
@@ -44,12 +45,17 @@ public class ContactsFragment extends Fragment {
         SideBar indexBar = (SideBar) rootView.findViewById(R.id.sideBar);
         indexBar.setListView(contacts);
 
+        final Button sendButton = (Button) rootView.findViewById(R.id.submitbutton);
+        sendButton.setVisibility(View.INVISIBLE);
+
         contacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 contactsAdapter.getItem(i).toString();
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
                 checkBox.setVisibility(View.VISIBLE);
+                sendButton.setVisibility(View.VISIBLE);
+                sendButton.setText(contactsAdapter.getItem(i).toString());
             }
         });
 

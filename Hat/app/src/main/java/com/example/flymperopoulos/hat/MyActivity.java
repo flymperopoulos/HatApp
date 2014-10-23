@@ -66,4 +66,12 @@ public class MyActivity extends Activity {
         transaction.replace(R.id.container, fragment);
         transaction.commit();
     }
+
+    public void changeToResultsFragment(){
+        ResultsFragment fragment  = new ResultsFragment();
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
+    }
 }

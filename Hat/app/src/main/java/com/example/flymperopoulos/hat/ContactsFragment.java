@@ -18,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,6 +28,9 @@ public class ContactsFragment extends Fragment {
 
     public ContactsFragment(){}
     private Context context;
+    Button sendButton;
+    Button arrowButton;
+    String allnames;
 
     @Override
     public void onAttach(Activity activity) {
@@ -45,17 +49,45 @@ public class ContactsFragment extends Fragment {
         SideBar indexBar = (SideBar) rootView.findViewById(R.id.sideBar);
         indexBar.setListView(contacts);
 
-        final Button sendButton = (Button) rootView.findViewById(R.id.submitbutton);
-        sendButton.setVisibility(View.INVISIBLE);
+        sendButton = (Button) rootView.findViewById(R.id.submitbutton);
+        arrowButton = (Button) rootView.findViewById(R.id.sendbutton);
 
         contacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                contactsAdapter.getItem(i).toString();
-                CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
-                checkBox.setVisibility(View.VISIBLE);
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+                String chosen = contactsAdapter.getItem(i).toString();
+//                CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
+//                checkBox.setVisibility(View.VISIBLE);
                 sendButton.setVisibility(View.VISIBLE);
-                sendButton.setText(contactsAdapter.getItem(i).toString());
+                arrowButton.setVisibility(View.VISIBLE);
+
+                if (allnames != null) {
+                    List<String> nameList = new ArrayList<String>(Arrays.asList(allnames.split(", ")));
+                    if (nameList.contains(chosen)) {
+                        nameList.remove(chosen);
+                        if (nameList.isEmpty()){
+                            sendButton.setVisibility(View.INVISIBLE);
+                            arrowButton.setVisibility(View.INVISIBLE);
+                        }
+                        String temp = "";
+                        for (int j=0; j<nameList.size(); j++){
+                            temp += nameList.get(j) + ", ";
+                        }
+                        allnames = temp ;
+                    } else {
+                        allnames += chosen + ", ";
+                    }
+                } else {
+                    allnames = chosen + ", ";
+                }
+                sendButton.setText(allnames);
+            }
+        });
+
+        arrowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MyActivity) getActivity()).changeToResultsFragment();
             }
         });
 
@@ -79,7 +111,7 @@ public class ContactsFragment extends Fragment {
             if(contactNumber.length()>10){
                 contactNumber = contactNumber.substring(1);
             }
-            String s = contactName + " " + contactNumber;
+            String s = contactName;
             if (s != null)
             {
                 arrContacts.add(s);

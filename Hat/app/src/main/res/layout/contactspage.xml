@@ -7,6 +7,7 @@
     android:id="@+id/contactpage"
     >
 
+
     <TextView
         android:id="@+id/contactstitle"
         android:layout_width="fill_parent"
@@ -41,12 +42,19 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:singleLine="false"
+        android:visibility="invisible"
         android:background="@drawable/sendbutton"
         />
 
-    <!--<CheckBox-->
-        <!--android:id="@+id/selected"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
+    <Button
+        android:id="@+id/sendbutton"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_action_arrow"
+        android:visibility="invisible"
+        />
 
 </RelativeLayout>

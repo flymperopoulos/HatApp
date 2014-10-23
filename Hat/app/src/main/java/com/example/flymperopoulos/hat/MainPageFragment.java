@@ -84,6 +84,7 @@ public class MainPageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((MyActivity) getActivity()).changeToContactsFragment();
+                releaseMediaPlayer();
             }
         });
 

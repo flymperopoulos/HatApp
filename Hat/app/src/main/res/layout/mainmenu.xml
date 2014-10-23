@@ -30,13 +30,33 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/recordhat"
         />
-    
+
+    <Button
+        android:id="@+id/playButton"
+        android:textSize="20dp"
+        android:text="Play"
+        android:layout_below="@+id/recordhat"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/sendbutton"
+        android:textAllCaps="true"
+        android:layout_marginBottom="20dp"
+        android:visibility="invisible"
+        />
+
     <Button
         android:id="@+id/send"
         android:textSize="20dp"
+        android:layout_below="@+id/playButton"
         android:text="Send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/sendbutton"
+        android:textAllCaps="true"
+        />
+
 
 
 </RelativeLayout>

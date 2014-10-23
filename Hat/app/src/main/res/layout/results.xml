@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9494"
+    android:id="@+id/resultspage"
+    >
+
+
+    <TextView
+        android:id="@+id/results"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Results"
+        android:gravity="center"
+        android:background="@drawable/sendbutton"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="fill_parent"
+        android:text="Re - Hat"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sendbutton"
+        android:textSize="30sp"
+        />
+
+    <ListView
+        android:id="@+id/resultlist"
+        android:layout_width="fill_parent"
+        android:layout_above="@+id/reset"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/results"
+        android:background="#FFFFFF"
+        >
+    </ListView>
+
+</RelativeLayout>

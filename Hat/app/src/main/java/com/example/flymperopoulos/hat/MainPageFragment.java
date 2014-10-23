@@ -48,6 +48,8 @@ public class MainPageFragment extends Fragment {
         final ImageView newhat = (ImageView) rootView.findViewById(R.id.recordhat);
         newhat.setVisibility(View.INVISIBLE);
 
+        final Button tryOut = (Button) rootView.findViewById(R.id.playButton);
+
         OUTPUT_FILE = Environment.getExternalStorageDirectory() + "/audiorecorder.3gpp";
 
         hat.setOnTouchListener(new View.OnTouchListener() {
@@ -68,6 +70,7 @@ public class MainPageFragment extends Fragment {
                     StopRecording();
                     newhat.setVisibility(View.INVISIBLE);
                     hat.setVisibility(View.VISIBLE);
+                    tryOut.setVisibility(View.VISIBLE);
                     Log.d("stop", "stop recording");
 
                     return true;
@@ -76,13 +79,25 @@ public class MainPageFragment extends Fragment {
             }
         });
         Button send = (Button)rootView.findViewById(R.id.send);
+
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ((MyActivity) getActivity()).changeToContactsFragment();
+                releaseMediaPlayer();
             }
         });
 
+        tryOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+        public void onClick(View view) {
+                try {
+                    playRecording();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         return rootView;
     }
@@ -110,6 +125,25 @@ public class MainPageFragment extends Fragment {
             recorder.stop();
     }
 
+    private void playRecording() throws Exception{
+        releaseMediaPlayer();
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setDataSource(OUTPUT_FILE);
+        mediaPlayer.prepare();
+        mediaPlayer.start();
+    }
+
+    private void releaseMediaPlayer(){
+        if (mediaPlayer != null){
+            mediaPlayer.release();
+            try {
+                mediaPlayer.release();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     private void releaseMediaRecorder() {
         // We have a recorder object, and we want to release it
         if (recorder != null){
@@ -121,5 +155,7 @@ public class MainPageFragment extends Fragment {
             }
         }
     }
+
+
 
 }

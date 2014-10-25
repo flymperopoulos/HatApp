@@ -85,7 +85,7 @@ public class MainPageFragment extends Fragment {
             public void onClick(View view) {
                 ((MyActivity) getActivity()).changeToContactsFragment();
                 releaseMediaPlayer();
-            }
+            7gfv
         });
 
         tryOut.setOnClickListener(new View.OnClickListener() {

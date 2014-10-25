@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:id="@+id/requests"
+        android:textAllCaps="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/signbutton"
+        android:text="Events"
+        />
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/requestlist"
+        android:layout_below="@+id/requests"
+        android:textAlignment="center"
+        >
+        </ListView>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/map_button"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/signbutton"
+        android:text="Map"
+        />
+
+</RelativeLayout>
